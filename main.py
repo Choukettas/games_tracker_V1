@@ -29,6 +29,11 @@ params_epicgame_DLC = {
     "type": "loot"
 }
 
+params_gog_game = {
+    "platform": "gog",
+    "type": "game"
+}
+
 print("Bot lancé...")
 
 while True:
@@ -48,7 +53,7 @@ while True:
 
         if not data or not isinstance(data, list):
             print("⚠️ Données invalides")
-            time.sleep(5)
+            time.sleep(300)
             continue
 
         d = data[0]
@@ -105,7 +110,7 @@ while True:
 
         if not data or not isinstance(data, list):
             print("⚠️ Données invalides")
-            time.sleep(5)
+            time.sleep(300)
             continue
 
         d = data[0]
@@ -162,7 +167,7 @@ while True:
 
         if not data or not isinstance(data, list):
             print("⚠️ Données invalides")
-            time.sleep(5)
+            time.sleep(300)
             continue
 
         d = data[0]
@@ -219,7 +224,7 @@ while True:
 
         if not data or not isinstance(data, list):
             print("⚠️ Données invalides")
-            time.sleep(5)
+            time.sleep(300)
             continue
 
         d = data[0]
@@ -255,6 +260,63 @@ while True:
             print(f"[OK] {d.get('title')} envoyé")
 
             with open("./data/steam_DLC.json", "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=4, ensure_ascii=False)
+
+    except Exception as e:
+        print("Erreur :", e)
+
+    try:
+
+        old_id = None
+        if os.path.exists("./data/gog_game.json"):
+            with open("./data/gog_game.json", "r", encoding="utf-8") as f:
+                old_data = json.load(f)
+                if isinstance(old_data, list) and old_data:
+                    old_id = old_data[0].get("id")
+
+        
+        r = requests.get(url, params=params_gog_game, timeout=5)
+        r.raise_for_status()
+        data = r.json()
+
+        if not data or not isinstance(data, list):
+            print("⚠️ Données invalides")
+            time.sleep(300)
+            continue
+
+        d = data[0]
+        current_id = d.get("id")
+
+
+        if old_id == current_id:
+            print("⏩ Déjà envoyé, on ignore")
+
+        else:
+            print("🆕 Nouveau game détecté")
+
+            payload = {
+                "content": ping_target,
+                "embeds": [
+                    {
+                        "thumbnail": { "url": "https://i.postimg.cc/3xff3YT7/png-transparent-computer-icons-gog-com-font-gog-text-rectangle-logo.png" },
+                        "title": d.get("title"),
+                        "description": (
+                            f"{d.get('description')}\n\n"
+                            f"~~{d.get('worth')}~~ **game jusqu’au {d.get('end_date')}**\n"
+                            f"🔗 [Ouvrir dans la boutique]({d.get('open_giveaway')})"
+                        ),
+                        "color": 0x7F00FF,
+                        "footer": { "text": "by choukettas" },
+                        "timestamp": datetime.utcnow().isoformat(),
+                        "image": { "url": d.get("image") }
+                    }
+                ]
+            }
+
+            requests.post(webhook_url_game,json=payload)
+            print(f"[OK] {d.get('title')} envoyé")
+
+            with open("./data/gog_game.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4, ensure_ascii=False)
 
     except Exception as e:
