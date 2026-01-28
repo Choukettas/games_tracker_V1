@@ -24,24 +24,6 @@ The bot regularly checks for new giveaways and only sends those that have not be
 
 ---
 
-## 🔧 Project Structure
-
-free_games_tracker/
-├─ main.py # Main script
-├─ data/ # Giveaway JSON files
-│ ├─ steam_game.json
-│ ├─ epicgame_game.json
-│ ├─ steam_DLC.json
-│ ├─ epicgame_DLC.json
-│ ├─ gog_game.json
-│ ├─ playstation.json
-│ ├─ xbox.json
-│ └─ switch.json
-├─ requirements.txt # Python dependencies
-└─ README.md # Project documentation
-
----
-
 ## ⚙️ Installation
 
 1. **Clone the repository**:  
