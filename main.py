@@ -6,12 +6,12 @@ from datetime import datetime
 import os
 
 url = "https://www.gamerpower.com/api/giveaways"
-webhook_url_game_pc = "https://discord.com/api/webhooks/1465076063179640890/ztY3UmQNOaCZENFCf24s1XND_AgL_gBiDcpqHCluJWS1BYVlf0OdQePVCzPbaNQ8L34n"
-webhook_url_game_ps = "https://discord.com/api/webhooks/1466183672356147383/IhT3oiVouMOoxoBlTaD1tzR0H-ozeOalHIrtIcKBIXSkziB2jyzzWZ82LK0Ht7hVj0Ux"
-webhook_url_game_xbox = "https://discord.com/api/webhooks/1466183861942751272/nH1OpAd5lLZ2JEt22Z9UO84Wkrtuj8_QMDx0T25C4H1B3J_2P04epwQYVBYD90t_FzjL"
-webhook_url_game_switch = "https://discord.com/api/webhooks/1466183986593398969/nR0aXdd7aY2LANAgGz9qImCGF5Y5Bb75rALlOixclJ_dE0UzWIJYw0kFNSgW26b0e6DZ"
-webhook_url_DLC = "https://discord.com/api/webhooks/1465076069043536074/suJJwGiOId5ZdZpwDUgZ6JzGiuZ4j-u_PnRD9j5zBThUjRKu7zrl_QYUJsYlYOX9Q96B"
-ping_target = "<@&1463454577302175878>"
+webhook_url_game_pc = "your token"
+webhook_url_game_ps = "your token"
+webhook_url_game_xbox = "your token"
+webhook_url_game_switch = "your token"
+webhook_url_DLC = "your token"
+ping_target = "role ping"
 
 params_steam_game = {"platform": "steam","type": "game"}
 params_epicgame_game = {"platform": "epic-games-store","type": "game"}
@@ -482,3 +482,4 @@ while True:
         print("Erreur :", e)
 
     time.sleep(300)
+
