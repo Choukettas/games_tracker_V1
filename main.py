@@ -39,11 +39,6 @@ while True:
         r.raise_for_status()
         data = r.json()
 
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
-
         d = data[0]
         current_id = d.get("id")
 
@@ -95,11 +90,6 @@ while True:
         r = requests.get(url, params=params_epicgame_game, timeout=5)
         r.raise_for_status()
         data = r.json()
-
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
 
         d = data[0]
         current_id = d.get("id")
@@ -153,11 +143,6 @@ while True:
         r.raise_for_status()
         data = r.json()
 
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
-
         d = data[0]
         current_id = d.get("id")
 
@@ -209,11 +194,6 @@ while True:
         r = requests.get(url, params=params_steam_DLC, timeout=5)
         r.raise_for_status()
         data = r.json()
-
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
 
         d = data[0]
         current_id = d.get("id")
@@ -267,11 +247,6 @@ while True:
         r.raise_for_status()
         data = r.json()
 
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
-
         d = data[0]
         current_id = d.get("id")
 
@@ -323,11 +298,6 @@ while True:
         r = requests.get(url, params=param_playstation, timeout=5)
         r.raise_for_status()
         data = r.json()
-
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
 
         d = data[0]
         current_id = d.get("id")
@@ -381,11 +351,6 @@ while True:
         r.raise_for_status()
         data = r.json()
 
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
-
         d = data[0]
         current_id = d.get("id")
 
@@ -438,11 +403,6 @@ while True:
         r.raise_for_status()
         data = r.json()
 
-        if not data or not isinstance(data, list):
-            print(Fore.RED +"Données invalides")
-            time.sleep(300)
-            continue
-
         d = data[0]
         current_id = d.get("id")
 
@@ -482,4 +442,5 @@ while True:
         print("Erreur :", e)
 
     time.sleep(300)
+
 
