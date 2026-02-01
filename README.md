@@ -1,4 +1,4 @@
-# 🎮 Giveaway Bot Discord
+# 🎮 Games Tracker V1 Discord
 
 This project is a **Python bot** that monitors multiple video game platforms and automatically sends **new giveaways** to Discord via webhooks.
 
